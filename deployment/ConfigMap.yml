@@ -1,0 +1,17 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: zjGPU-cm
+  namespace: kube-system
+data:
+  config.json: |
+    {
+      "resourceName": "github.com/zjGPU",
+      "socketName": "zjGPU.sock",
+      "numDevices": 100,
+      "hostDevices": [{
+        "hostPath": "/dev/zjGPU",
+        "containerPath": "/dev/zjGPU",
+        "permission": "r"
+      }]
+    }
