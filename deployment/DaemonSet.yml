@@ -23,7 +23,7 @@ spec:
       - key: CriticalAddonsOnly
         operator: Exists
       containers:
-      - image: tobyzhou9408/zjGPU-device-plugin:latest
+      - image: tobyzhou9408/zjgpu-device-plugin:latest
         name: zjGPU-device-plugin-ctr
         securityContext:
           allowPrivilegeEscalation: false
