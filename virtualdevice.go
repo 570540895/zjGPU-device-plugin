@@ -19,7 +19,7 @@ func (d *VirtualDevice) validate() error {
 		return fmt.Errorf("HostPath can container only one '*' character: %s", d.HostPath)
 	}
 
-	if numGlobVirtualPath == 1 {
+	if numGlobHostPath == 1 {
 		if !strings.HasSuffix(d.ContainerPath, "*") {
 			return fmt.Errorf("ContainerPath should ends with '*' character when VirtualPath container '*': %s", d.ContainerPath)
 		}
