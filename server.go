@@ -36,7 +36,7 @@ type VirtualDevicePlugin struct {
 	health chan string
 
 	// this device files will be mounted to container
-	virtualtDevices []*ExpandedVirtualDevice
+	virtualDevices []*ExpandedVirtualDevice
 
 	server *grpc.Server
 }
