@@ -10,8 +10,8 @@ RUN go mod download
 COPY . .
 RUN go install -ldflags="-s -w"
 
-#replace: gcr.io/distroless/static-debian12
-FROM gcr.lank8s.cn/distroless/static-debian12  
+#replace: gcr.lank8s.cn/distroless/static-debian12
+FROM gcr.io/distroless/static-debian12 
 COPY --from=builder /go/bin/k8s-host-device-plugin /bin/k8s-host-device-plugin
 
 CMD ["/bin/zjGPU-device-plugin"]
