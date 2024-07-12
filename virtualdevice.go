@@ -39,7 +39,7 @@ type ExpandedVirtualDevice struct {
 	Permission    string
 }
 
-func (d VirtualDevice) Expand() ([]*ExpandeVirtualDevice, error) {
+func (d VirtualDevice) Expand() ([]*ExpandedVirtualDevice, error) {
 	if err := d.validate(); err != nil {
 		return nil, err
 	}
