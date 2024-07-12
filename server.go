@@ -224,7 +224,7 @@ func (m *VirtualDevicePlugin) Allocate(ctx context.Context, r *pluginapi.Allocat
 		ds := make([]*pluginapi.DeviceSpec, len(m.virtualDevices))
 		for j, _ := range m.virtualDevices {
 			ds[j] = &pluginapi.DeviceSpec{
-				VirtualPath:      m.virtualDevices[j].VirtualPath,
+				HostPath:      m.virtualDevices[j].HostPath,
 				ContainerPath: m.virtualDevices[j].ContainerPath,
 				Permissions:   m.virtualDevices[j].Permission,
 			}
