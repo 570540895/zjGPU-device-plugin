@@ -103,9 +103,9 @@ func dial(unixSocketPath string, timeout time.Duration) (*grpc.ClientConn, error
 func getVirtualDevicesHealth(virtualDevices []*ExpandedVirtualDevice) string {
 	health := pluginapi.Healthy
 	for _, device := range virtualDevices {
-		if _, err := os.Stat(device.VirtualPath); os.IsNotExist(err) {
+		if _, err := os.Stat(device.HostPath); os.IsNotExist(err) {
 			health = pluginapi.Unhealthy
-			log.Printf("VirtualPath not found: %s", device.VirtualPath)
+			log.Printf("HostPath not found: %s", device.HostPath)
 		}
 	}
 	return health
