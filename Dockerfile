@@ -3,7 +3,7 @@ ARG CGO_ENABLED=0
 ARG GOOS=linux
 ARG GOARCH=amd64
 
-WORKDIR /go/src/zjGPU-device-plugin
+WORKDIR /go/src/k8s-host-device-plugin
 COPY go.mod go.sum ./
 RUN go mod download
 
