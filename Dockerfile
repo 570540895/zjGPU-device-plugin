@@ -1,4 +1,4 @@
-FROM golang:1.22 as builder
+FROM golang:1.22 as build
 ARG CGO_ENABLED=0
 ARG GOOS=linux
 ARG GOARCH=amd64
@@ -11,7 +11,7 @@ COPY . .
 RUN go install -ldflags="-s -w"
 
 #replace: gcr.lank8s.cn/distroless/static-debian12
-FROM gcr.io/distroless/static-debian12 
-COPY --from=builder /go/bin/k8s-host-device-plugin /bin/k8s-host-device-plugin
+FROM gcr.io/distroless/static-debian12
+COPY --from=build /go/bin/k8s-host-device-plugin /bin/k8s-host-device-plugin
 
-CMD ["/bin/zjGPU-device-plugin"]
+CMD ["/bin/k8s-host-device-plugin"]
