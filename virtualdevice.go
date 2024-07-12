@@ -14,9 +14,9 @@ type VirtualDevice struct {
 }
 
 func (d *VirtualDevice) validate() error {
-	numGlobVirtualPath := strings.Count(d.VirtualPath, "*")
-	if numGlobVirtualPath > 1 {
-		return fmt.Errorf("VirtualPath can container only one '*' character: %s", d.VirtualPath)
+	numGlobHostPath := strings.Count(d.HostPath, "*")
+	if numGlobHostPath > 1 {
+		return fmt.Errorf("HostPath can container only one '*' character: %s", d.HostPath)
 	}
 
 	if numGlobVirtualPath == 1 {
@@ -44,23 +44,23 @@ func (d VirtualDevice) Expand() ([]*ExpandedVirtualDevice, error) {
 		return nil, err
 	}
 
-	matchedVirtualPath, err := filepath.Glob(d.VirtualPath)
+	matchedHostPath, err := filepath.Glob(d.HostPath)
 	if err != nil {
 		return nil, err
 	}
 
 	expanded := []*ExpandedVirtualDevice{}
-	baseVirtualPath := strings.Split(d.VirtualPath, "*")[0]
+	baseHostPath := strings.Split(d.HostPath, "*")[0]
 	baseContainerPath := strings.Split(d.ContainerPath, "*")[0]
-	for _, vp := range matchedVirtualPath {
-		fInfo, _ := os.Stat(vp)
+	for _, hp := range matchedHostPath {
+		fInfo, _ := os.Stat(hp)
 		if fInfo.IsDir() {
 			continue
 		}
 
 		expanded = append(expanded, &ExpandedVirtualDevice{
-			HostPath:      vp,
-			ContainerPath: strings.Replace(hp, baseVirtualPath, baseContainerPath, 1),
+			HostPath:      hp,
+			ContainerPath: strings.Replace(hp, baseHostPath, baseContainerPath, 1),
 			Permission:    d.Permission,
 		})
 	}
