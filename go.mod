@@ -1,4 +1,4 @@
-module github.com/570540895/k8s-host-device-plugin
+module github.com/570540895/zjGPU-device-plugin
 
 go 1.21
 
