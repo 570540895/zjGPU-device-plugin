@@ -8,7 +8,7 @@ import (
 )
 
 type VirtualDevice struct {
-	VirtualPath    string  `json:"virtualPath"`
+	HostPath    string  `json:"hostPath"`
 	ContainerPath  string  `json:"containerPath"`
 	Permission     string  `json:"permission"`
 }
@@ -34,7 +34,7 @@ func (d *VirtualDevice) validate() error {
 }
 
 type ExpandedVirtualDevice struct {
-	VirtualPath      string
+	HostPath      string
 	ContainerPath string
 	Permission    string
 }
@@ -59,7 +59,7 @@ func (d VirtualDevice) Expand() ([]*ExpandedVirtualDevice, error) {
 		}
 
 		expanded = append(expanded, &ExpandedVirtualDevice{
-			VirtualPath:      vp,
+			HostPath:      vp,
 			ContainerPath: strings.Replace(hp, baseVirtualPath, baseContainerPath, 1),
 			Permission:    d.Permission,
 		})
