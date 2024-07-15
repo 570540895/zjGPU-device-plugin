@@ -33,7 +33,7 @@ spec:
           - name: device-plugin
             mountPath: /var/lib/kubelet/device-plugins
           - name: config
-            mountPath: /zjGPU-device-plugin
+            mountPath: /zjgpu-device-plugin
       volumes:
         - name: device-plugin
           hostPath:
