@@ -18,7 +18,7 @@ const (
 )
 
 func main() {
-	log.Println("Starging K8s VirtualDevice Plugin.")
+	log.Println("Starging K8s HostDevice Plugin.")
 
 	log.Println("Starting FS watcher.")
 	watcher, err := newFSWatcher(pluginapi.DevicePluginPath)
@@ -38,14 +38,14 @@ func main() {
 		os.Exit(1)
 	}
 
-	var config VirtualDevicePluginConfig
+	var config HostDevicePluginConfig
 	json.Unmarshal(raw, &config)
 
 	s, _ := json.Marshal(config)
 	log.Println("loaded config: ", string(s))
 
 	restart := true
-	var devicePlugin *VirtualDevicePlugin
+	var devicePlugin *HostDevicePlugin
 
 L:
 	for {
@@ -54,16 +54,16 @@ L:
 				devicePlugin.Stop()
 			}
 
-			devicePlugin, err = NewVirtualDevicePlugin(config)
+			devicePlugin, err = NewHostDevicePlugin(config)
 			if err != nil {
 				fmt.Println(err.Error())
 				os.Exit(1)
 			}
-			expandedVirtualDevicesStr := []string{}
-			for _, hd := range devicePlugin.virtualDevices {
-				expandedVirtualDevicesStr = append(expandedVirtualDevicesStr, fmt.Sprintf("%+v", hd))
+			expandedHostDevicesStr := []string{}
+			for _, hd := range devicePlugin.hostDevices {
+				expandedHostDevicesStr = append(expandedHostDevicesStr, fmt.Sprintf("%+v", hd))
 			}
-			log.Printf("expanded virtual devices: %s\n", strings.Join(expandedVirtualDevicesStr, ","))
+			log.Printf("expanded host devices: %s\n", strings.Join(expandedHostDevicesStr, ","))
 
 			if err := devicePlugin.Serve(); err != nil {
 				log.Println("Could not contact Kubelet, retrying. Did you enable the device plugin feature gate?")
