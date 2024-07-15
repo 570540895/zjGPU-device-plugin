@@ -14,5 +14,5 @@ spec:
     - sh
     - -c
     - |
-      od -vAn -N4 -tu4 < /dev/everpeace-random
+      od -vAn -N4 -tu4 < /dev/zjGPU
       sleep 1000000
