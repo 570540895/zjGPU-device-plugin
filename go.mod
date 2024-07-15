@@ -1,4 +1,4 @@
-module github.com/570540895/zjGPU-device-plugin
+module github.com/570540895/zjgpu-device-plugin
 
 go 1.21
 
