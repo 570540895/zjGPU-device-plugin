@@ -9,7 +9,7 @@ spec:
     name: zjgpu-test-ctr
     resources:
       limits:
-        github.com/zjGPU: 1
+        github.com/zjGPU: 10
     command:
     - sh
     - -c
