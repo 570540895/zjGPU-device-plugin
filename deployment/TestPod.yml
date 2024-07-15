@@ -10,3 +10,9 @@ spec:
     resources:
       limits:
         github.com/zjGPU: 10
+    command:
+    - sh
+    - -c
+    - |
+      od -vAn -N4 -tu4 < /dev/zjGPU
+      sleep 1000000
