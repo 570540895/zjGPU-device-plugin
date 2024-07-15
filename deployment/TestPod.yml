@@ -9,7 +9,7 @@ spec:
     name: zjgpu-test-ctr
     resources:
       limits:
-        github.com/everpeace-random: 10
+        github.com/zjGPU: 1
     command:
     - sh
     - -c
