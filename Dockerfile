@@ -3,7 +3,7 @@ ARG CGO_ENABLED=0
 ARG GOOS=linux
 ARG GOARCH=amd64
 
-WORKDIR /go/src/zjGPU-device-plugin
+WORKDIR /go/src/zjgpu-device-plugin
 COPY go.mod go.sum ./
 RUN go mod download
 
@@ -12,6 +12,6 @@ RUN go install -ldflags="-s -w"
 
 #replace: gcr.lank8s.cn/distroless/static-debian12
 FROM gcr.io/distroless/static-debian12
-COPY --from=builder /go/bin/zjGPU-device-plugin /bin/zjGPU-device-plugin
+COPY --from=builder /go/bin/zjgpu-device-plugin /bin/zjgpu-device-plugin
 
-CMD ["/bin/zjGPU-device-plugin"]
+CMD ["/bin/zjgpu-device-plugin"]
