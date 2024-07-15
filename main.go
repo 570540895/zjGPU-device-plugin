@@ -14,7 +14,7 @@ import (
 )
 
 const (
-	ConfigFilePath = "/zjGPU-device-plugin/config.json"
+	ConfigFilePath = "/zjgpu-device-plugin/config.json"
 )
 
 func main() {
