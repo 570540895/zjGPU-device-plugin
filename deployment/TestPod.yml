@@ -9,10 +9,10 @@ spec:
     name: zjgpu-test-ctr
     resources:
       limits:
-        github.com/zjgpu: 10
+        github.com/zjgpu: 8
     command:
     - sh
     - -c
     - |
-      od -vAn -N4 -tu4 < /dev/zjGPU
+      od -vAn -N4 -tu4 < /dev/random
       sleep 1000000

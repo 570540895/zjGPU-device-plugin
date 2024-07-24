@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: zjgpu-test-deployment
+spec:
+  selector:
+    matchLabels:
+      app: zjgpu-test
+  replicas: 512
+  template:
+    metadata:
+      labels:
+        app: zjgpu-test
+    spec:
+      containers:
+      - name: zjgpu-test-ctr
+        image: alpine
+        ports:
+        - containerPort: 80
+        resources:
+          limits:
+            zhejianglab.com/gpu: 8
+        command:
+        - sh
+        - -c
+        - |
+          od -vAn -N4 -tu4 < /dev/random
+          sleep 1000000
+

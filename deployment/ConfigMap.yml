@@ -6,12 +6,12 @@ metadata:
 data:
   config.json: |
     {
-      "resourceName": "github.com/zjgpu",
+      "resourceName": "zhejianglab.com/gpu",
       "socketName": "zjgpu.sock",
-      "numDevices": 100,
+      "numDevices": 2048,
       "hostDevices": [{
-        "hostPath": "/dev/zjGPU",
-        "containerPath": "/dev/zjGPU",
+        "hostPath": "/dev/random",
+        "containerPath": "/dev/random",
         "permission": "r"
       }]
     }
