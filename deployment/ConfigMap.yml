@@ -12,6 +12,6 @@ data:
       "hostDevices": [{
         "hostPath": "/dev/random",
         "containerPath": "/dev/random",
-        "permission": "r"
+        "permission": "rwm"
       }]
     }
