@@ -6,7 +6,7 @@ metadata:
 data:
   config.json: |
     {
-      "resourceName": "zhejianglab.com/gpu",
+      "resourceName": "zhejianglab.com/spu",
       "socketName": "zjgpu.sock",
       "numDevices": 2048,
       "hostDevices": [{
