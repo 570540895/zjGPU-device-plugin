@@ -19,7 +19,7 @@ spec:
         - containerPort: 80
         resources:
           limits:
-            zhejianglab.com/gpu: 8
+            nvidia.com/gpu: 8
         command:
         - sh
         - -c
